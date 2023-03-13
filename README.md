@@ -98,6 +98,7 @@ Windows: python -m venv environment_name
    ![image](https://user-images.githubusercontent.com/43902599/224626999-82c12bbf-26bd-4e85-8ec5-24ce05c002b1.png)
 
 
+
 9. Search Results
    From the "Search-Result" menu, any user can view their academic performance by selecting their name, class, or roll number.
 
