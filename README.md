@@ -48,7 +48,7 @@ Windows: python -m venv environment_name
     }<br />
   }<br />
   
-9. Users:
+9. Users:<br />
 <b>Existing Superuser:</b><br />
 username: sms<br />
 password: 123<br />
