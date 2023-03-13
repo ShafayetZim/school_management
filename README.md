@@ -3,7 +3,8 @@ Project Installation in Django Python:
 
 1. Download python and install
 
-2.Create Virtual Environment
+ 2.Create Virtual Environment
+ 
   #linux & mac os
   ->python3 -m venv environment_name
   #Windows
