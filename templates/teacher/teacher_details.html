@@ -1,0 +1,28 @@
+<style>
+    #uni_modal .modal-footer {
+        display: none
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <dl>
+                <dt class="text-muted">Fullname:</dt>
+                <dd class="ps-3">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</dd>
+                <dt class="text-muted">Gender:</dt>
+                <dd class="ps-3">{{ teacher.gender }}</dd>
+                <dt class="text-muted">Birthday:</dt>
+                <dd class="ps-3">{{ teacher.dob|date:"F d, Y" }}</dd>
+                <dt class="text-muted">Contact:</dt>
+                <dd class="ps-3">{{ teacher.contact }}</dd>
+                <dt class="text-muted">Email:</dt>
+                <dd class="ps-3">{{ teacher.user.email }}</dd>
+                <dt class="text-muted">Username:</dt>
+                <dd class="ps-3">{{ teacher.user.username }}</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="w-100 d-flex justify-content-end mt-3">
+        <button class="btn btn-default border btn-sm" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+    </div>
+</div>

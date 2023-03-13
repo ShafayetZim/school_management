@@ -1,0 +1,119 @@
+{% extends 'base.html' %} {% block pageContent %}
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card card-default rounded-0 shadow ">
+        <div class="card-header">
+            <div class="d-flex w-100 align-items-center justify-content-between">
+                <h4 class="card-title fw-bold">Assigned Class Result</h4>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <table class="table table-bordered" id="class-list">
+                    <colgroup>
+                        <col width="5%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="15%">
+                        <col width="20%">
+                    </colgroup>
+                    <thead>
+                        <tr class="bg-gradient bg-primary bg-opacity-50 text-light">
+                            <th class="px-2 py-2 text-center">#</th>
+                            <th class="px-2 py-2 text-center">Class</th>
+                            <th class="px-2 py-2 text-center">Subject</th>
+                            <th class="px-2 py-2 text-center">Teacher</th>
+                            <th class="px-2 py-2 text-center">Year</th>
+                            <th class="px-2 py-2 text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for class in classes %}
+                        <tr>
+                            <td class="px-2 py-1 align-middle">{{ class.id }}</td>
+                            <td class="px-2 py-1 align-middle">{{ class.assigned_class.name }}</td>
+                            <td class="px-2 py-1 align-middle">{{ class.assigned_subject.name }}</td>
+                            <td class="px-2 py-1 align-middle">{{ class.assigned_teacher.user.first_name }} {{ class.assigned_teacher.user.last_name }}</td>
+                            <td class="px-2 py-1 align-middle">{{ class.year }}</td>
+                            <td class="px-2 py-1 align-middle text-center">
+
+                                <a class="btn btn-outline-info btn-sm" href="{% url 'view-class-page' class.pk %}" title="View">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock pageContent %} {% block ScriptBlock %}
+<script>
+    $(function() {
+        $('#add_new').click(function() {
+            uni_modal('<i class="fa fa-plus"></i> Add Assigned class', '{% url "manage-active-class" %}', 'modal-md')
+        })
+        $('.edit-data').click(function() {
+            uni_modal('<i class="fa fa-edit"></i> Edit class', '{% url "manage-active-class" %}/' + $(this).attr('data-id'), 'modal-md')
+        })
+        $('.delete-data').click(function() {
+            _conf("Are you sure to delete this assigned class permanently?", "delete_class", [$(this).attr('data-id')])
+        })
+
+        $('#class-list').DataTable({
+            columnDefs: [{
+                orderable: false,
+                targets: 5
+            }],
+            initComplete: function(settings, json) {
+                $('table td, table th').addClass('px-2 py-1')
+            },
+            drawCallback: function(settings) {
+                $('table td, table th').addClass('px-2 py-1')
+            }
+        })
+    })
+
+    function delete_class($id) {
+        start_loader();
+        var _this = $(this)
+        $('.err-msg').remove();
+        var el = $('<div>')
+        el.addClass("alert alert-danger err-msg")
+        el.hide()
+        $.ajax({
+            url: '{% url "delete-active-class" %}',
+            headers: {
+                'X-CSRFToken': "{{csrf_token}}"
+            },
+            method: 'POST',
+            data: {
+                id: $id
+            },
+            dataType: 'json',
+            error: err => {
+                console.log(err)
+                el.text('An error occurred.')
+                el.show('slow')
+                end_loader()
+            },
+            success: function(resp) {
+                if (resp.status == 'success') {
+                    location.reload()
+                } else if (!!resp.msg) {
+                    el.text('An error occurred.')
+                    el.show('slow')
+                } else {
+                    el.text('An error occurred.')
+                    el.show('slow')
+                }
+                end_loader()
+            }
+        })
+    }
+</script>
+{% endblock ScriptBlock %}

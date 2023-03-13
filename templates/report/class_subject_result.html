@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block pageContent %}
+  <h1>Class {{ class_instance.name }}</h1>
+  <form method="GET" action="">
+    <label for="subject">Select a subject:</label>
+    <select name="subject" id="subject">
+      <option value="">All subjects</option>
+      {% for subject in subjects %}
+        <option value="{{ subject.id }}" {% if selected_subject == subject.id %}selected{% endif %}>{{ subject.name }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Filter</button>
+  </form>
+
+  {% if selected_subject %}
+    <h2>Subject: {{ selected_subject.name }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Grade</th>
+          <th>Number of Students</th>
+          <th>Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for grade, count, percentage in subject_grades %}
+          <tr>
+            <td>{{ grade }}</td>
+            <td>{{ count }}</td>
+            <td>{{ percentage }}%</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h2>Overall Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Passing Percentage</th>
+          <th>Passing Students</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for subject, percentage, count in overall_results %}
+          <tr>
+            <td>{{ subject }}</td>
+            <td>{{ percentage }}%</td>
+            <td>{{ count }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock pageContent %}

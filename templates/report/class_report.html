@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block pageContent %}
+  <div class="container my-4">
+    <h1>{{ class_ins.assigned_class.name }} - {{ class_ins.assigned_subject.name }}</h1>
+    <hr>
+
+    <form method="GET" class="form-inline my-2 my-lg-0">
+      <select name="subject" class="form-control mr-sm-2">
+        <option value="">All Subjects</option>
+        {% for subject in class_ins.assigned_class.subject_set.all %}
+          <option value="{{ subject.id }}" {% if subject.id == selected_subject %}selected{% endif %}>{{ subject.name }}</option>
+        {% endfor %}
+      </select>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <div class="my-4">
+      {% if selected_subject %}
+        <h3>Grades Summary for {{ class_ins.assigned_subject.name }}</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Grade</th>
+              <th>No. of Students</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for grade, count, percentage in grade_summary %}
+              <tr>
+                <td>{{ grade }}</td>
+                <td>{{ count }}</td>
+                <td>{{ percentage }}%</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <h3>Results Summary for All Subjects</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Passing Percentage</th>
+              <th>No. of Passing Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for subject, passing_percentage, passing_count in results_summary %}
+              <tr>
+                <td>{{ subject }}</td>
+                <td>{{ passing_percentage }}%</td>
+                <td>{{ passing_count }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+  </div>
+{% endblock pageContent %}

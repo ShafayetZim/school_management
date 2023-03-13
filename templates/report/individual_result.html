@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% block pageContent %}
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card card-default rounded-0 shadow ">
+        <div class="card-header">
+            <div class="d-flex w-100 align-items-center justify-content-between">
+                <h4 class="card-title fw-bold">Filter Report</h4>
+            </div>
+        </div>
+
+        <div>
+            <form method="GET">
+                <section class="site_filter">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="check_student">Check Student</label>
+                                <select class="form-control select2" id="check_student" name="check_student">
+                                    <option disabled selected value="">Select Class</option>
+                                    {% for item in student %}
+                                    <option value="{{item.pk}}">{{item.student_code}} - {{item.first_name}} {{item.last_name}} - {{item.level}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="text-center mt-3">
+                <button class="btn btn-success">View</button>
+            </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+            {% if result %}
+                <table class="table table-bordered" id="student-list">
+                    <colgroup>
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="10%">
+                        <col width="10%">
+                        <col width="10%">
+                    </colgroup>
+                    <thead>
+                        <tr class="bg-gradient bg-primary bg-opacity-50 text-light">
+                            <th class="px-2 py-2 text-center">Class</th>
+                            <th class="px-2 py-2 text-center">Code</th>
+                            <th class="px-2 py-2 text-center">Name</th>
+                            <th class="px-2 py-2 text-center">Subject</th>
+                            <th class="px-2 py-2 text-center">Mark</th>
+                            <th class="px-2 py-2 text-center">Grade</th>
+                            <th class="px-2 py-2 text-center">Letter</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in result %}
+                        <tr>
+                            <td class="px-2 py-1 align-middle">{{ item.assigned_class }}</td>
+                            <td class="px-2 py-1 align-middle">{{ item.student.student_code }}</td>
+                            <td class="px-2 py-1 align-middle">{{ item.student.first_name }} {{ item.student.last_name }}</td>
+                            <td class="px-2 py-1 align-middle">{{ item.subject }}</td>
+                            <td class="px-2 py-1 align-middle">{{ item.mark }}</td>
+                            <td class="px-2 py-1 align-middle">{{ item.get_grade_point }}</td>
+                            <td class="px-2 py-1 align-middle">{{ item.get_letter_grade }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock pageContent %} {% block ScriptBlock %}
+<script>
+$(function() {
+            $('.select2').select2({
+                placeholder: 'Please Select Here',
+                width: '100%',
+
+            })
+
+    })
+</script>
+{% endblock ScriptBlock %}
