@@ -7,34 +7,34 @@
 linux & mac os: python3 -m venv environment_name<br />
 Windows: python -m venv environment_name
   
- Activate Environment<br />
+3. Activate Environment<br />
   #Linux & mac os<br />
   ->source environment_name/bin/activate<br />
   #Windows<br />
   ->environment_name\Scripts\activate
   
-3. Install Django<br />
+4. Install Django<br />
  #linux & mac os<br />
  ->pip3 install django<br />
  #Windows<br />
  ->pip install django
  
-4. >>>To Create superuser <br />
+5. To Create superuser <br />
 ->python manage.py createsuperuser
 	enter username, Email, password
 	enter your password again
   
-5. Migration & migrate:<br />
+6. Migration & migrate:<br />
 -> Windows: python manage.py makemigrations<br />
 -> Linux: python3 manage.py makemigrations<br />
 -> Windows: python manage.py migrate<br />
 -> Linux: python3 manage.py migrate
 
-6. Run development server: <br />
+7. Run development server: <br />
 -> Windows: python manage.py runserver<br />
 -> Linux: python3 manage.py runserver
 
-7. Optional Databse Configuration:<br />
+8. Optional Databse Configuration:<br />
   If you want other database server find and replace the below code of 'DATABASE' to preojects settings.py file<br />
   DATABASES = {<br />
     'default': {<br />
@@ -48,7 +48,7 @@ Windows: python -m venv environment_name
     }<br />
   }<br />
   
-
+9. Users:
 <b>Existing Superuser:</b><br />
 username: sms<br />
 password: 123<br />
