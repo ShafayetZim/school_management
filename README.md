@@ -3,61 +3,61 @@
 
 1. Download python and install
 
-2. Create Virtual Environment
-linux & mac os: python3 -m venv environment_name
+2. Create Virtual Environment<br />
+linux & mac os: python3 -m venv environment_name<br />
 Windows: python -m venv environment_name
   
-  >>>Activate Environment
-  #Linux & mac os
-  ->source environment_name/bin/activate
-  #Windows
+ Activate Environment<br />
+  #Linux & mac os<br />
+  ->source environment_name/bin/activate<br />
+  #Windows<br />
   ->environment_name\Scripts\activate
   
-3. >>>Install Django
- #linux & mac os
- ->pip3 install django
- #Windows
+3. Install Django<br />
+ #linux & mac os<br />
+ ->pip3 install django<br />
+ #Windows<br />
  ->pip install django
  
-4. >>>To Create superuser 
+4. >>>To Create superuser <br />
 ->python manage.py createsuperuser
 	enter username, Email, password
 	enter your password again
   
-5. Migration & migrate:
+5. Migration & migrate:<br />
 -> Windows: python manage.py makemigrations<br />
 -> Linux: python3 manage.py makemigrations<br />
 -> Windows: python manage.py migrate<br />
 -> Linux: python3 manage.py migrate
 
-6. Run development server:
--> Windows: python manage.py runserver
+6. Run development server: <br />
+-> Windows: python manage.py runserver<br />
 -> Linux: python3 manage.py runserver
 
-7. Optional Databse Configuration:
-  If you want other database server find and replace the below code of 'DATABASE' to preojects settings.py file
-  DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.#databaseservername#',
-        'NAME': 'Your Database Name',
-        'USER' : 'Database User Name',
-        'PASSWORD' : 'Your Password',
-        'HOST' : "Write down Host",
-        'PORT' : 'Write down port',
+7. Optional Databse Configuration:<br />
+  If you want other database server find and replace the below code of 'DATABASE' to preojects settings.py file<br />
+  DATABASES = {<br />
+    'default': {<br />
+        'ENGINE': 'django.db.backends.#databaseservername#',<br />
+        'NAME': 'Your Database Name',<br />
+        'USER' : 'Database User Name',<br />
+        'PASSWORD' : 'Your Password',<br />
+        'HOST' : "Write down Host",<br />
+        'PORT' : 'Write down port',<br />
                 
-    }
-  }
+    }<br />
+  }<br />
   
 
-<b>Existing Superuser:</b>
-username: sms
-password: 123
+<b>Existing Superuser:</b><br />
+username: sms<br />
+password: 123<br />
 
-<b>Existing teacher:</b>
-username: teacher1
-password: sms#2023
-username: teacher2
-password: sms#2023
+<b>Existing teacher:</b><br />
+username: teacher1<br />
+password: sms#2023<br />
+username: teacher2<br />
+password: sms#2023<br />
 
 
 <b>User Manual: School Management System</b>
