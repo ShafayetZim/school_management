@@ -77,8 +77,12 @@ User Manual: School Management System
 5. Adding a Teacher
    To add a teacher, go to the "Teachers" menu in the admin dashboard, then click "Add Teacher."
    Fill in the required information, such as name, email, and phone number. Assign the teacher to a class, and the teacher will be able to access the class's data.
+   
+6. Assign class
+   After adding all setup data, then click "Assign-Class."
+   Fill in the required information, such as CLass, Subject, Teacher and academic year. Here you can see all assigned class and view all student assigned to it.    
 
-6. Teacher Dashboard
+7. Teacher Dashboard
    The teacher dashboard is where the teacher user can manage the data that are assigned to them. From this dashboard, the teacher can:
 
    Add or delete marks to students of their class
@@ -89,17 +93,17 @@ User Manual: School Management System
    Once you have added marks to student of a subject, they will be removed from the list of students who need to be assigned marks.
    This will help you keep track of which students still need to be graded.
 
-7. GPA Grading
+8. GPA Grading
    When the teacher adds marks to a student, the system automatically converts the marks to GPA grading. The grading system follows a standard scale of 5.0
 
-8. Search Results
+9. Search Results
    From the "Search-Result" menu, any user can view their academic performance by selecting their name, class, or roll number.
 
-9. Dashboard Filters
+10. Dashboard Filters
    On the dashboard, there are two dropdown menus: one for the class and one for the subject. 
    If you select "all" from the subject dropdown, the system will aggregate the results and display them.
   ![image](https://user-images.githubusercontent.com/43902599/224623739-d4707ad9-42b2-486e-810f-9405768c8b8b.png)
 
 
-10. Logout
+11. Logout
    To logout from the system, click on the "Logout" button located at the top right corner of the screen.
