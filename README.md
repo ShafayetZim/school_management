@@ -47,6 +47,17 @@ Windows: python -m venv environment_name
                 
     }
   }
+  
+
+<b>Existing Superuser:</b>
+username: sms
+password: 123
+
+<b>Existing teacher:</b>
+username: teacher1
+password: sms#2023
+username: teacher2
+password: sms#2023
 
 
 <b>User Manual: School Management System</b>
