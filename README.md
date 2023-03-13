@@ -49,7 +49,7 @@ Windows: python -m venv environment_name
   }
 
 
-User Manual: School Management System
+<b>User Manual: School Management System<b>
 
 1. Introduction
    The School Management System is an online application designed for school administrators and teachers to manage students' records, classes, and academic performance. This system is accessible through a web browser, and the user must have an internet connection to access it. The system has two user roles: the Administrator or the Super User, and the Teacher User.
