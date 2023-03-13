@@ -25,9 +25,9 @@ Windows: python -m venv environment_name
 	enter your password again
   
 5. Migration & migrate:
--> Windows: python manage.py makemigrations
--> Linux: python3 manage.py makemigrations
--> Windows: python manage.py migrate
+-> Windows: python manage.py makemigrations<br />
+-> Linux: python3 manage.py makemigrations<br />
+-> Windows: python manage.py migrate<br />
 -> Linux: python3 manage.py migrate
 
 6. Run development server:
